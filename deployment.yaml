@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: <app_name>-deployment 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: <app_name>
+  template:
+    metadata:
+      labels:
+        app: <app_name>
+        release: <release_name>
+    spec:
+      containers:
+      - name: <app_name>
+        image: <region>.icr.io/<namespace>/<image_name>:<tag>
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: <app_name>
+  name: <app_name>
+spec:
+  ports:
+  - name: <app_name>
+    port: <port_number>
+    protocol: TCP
+    targetPort: <port_number>
+  selector:
+    app: <app_name>
+    release: <release_name>
+  type: ClusterIP
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: <app_name>-ingress
+spec:
+  rules:
+  - host: <host>.<cluster_name>.<region>.containers.appdomain.cloud
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: <app_name>
+          servicePort: <port_number>
