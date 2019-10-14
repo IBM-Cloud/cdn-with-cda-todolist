@@ -47,3 +47,7 @@ spec:
         backend:
           serviceName: <app_name>
           servicePort: <port_number>
+ tls:
+  - hosts:
+    - <host>.<cluster_name>.<region>.containers.appdomain.cloud
+    secretName: <secret_name>
