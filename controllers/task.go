@@ -12,6 +12,12 @@ type TaskController struct {
 	beego.Controller
 }
 
+func (this *TaskController) TestDca() {
+	this.TplName = "detection-test-object.html"
+	this.Ctx.Output.Header("Cache-Control", "no-cache, no-store, must-revalidate")
+	this.Render()
+}
+
 // Example:
 //
 //   req: GET /task/
@@ -99,9 +105,3 @@ func (this *TaskController) UpdateTask() {
 	}
 	models.DefaultTaskList.Save(&t)
 }
-
-func (this *TaskController) TestDca() {
-	this.TplName = "detection-test-object.html"
-	this.Render()
-}
-
