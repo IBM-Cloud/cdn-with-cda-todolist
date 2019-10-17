@@ -26,6 +26,7 @@ func (this *TaskController) TestDca() {
 //          {"ID": 2, "Title": "Buy bread", "Done": true}
 //        ]}
 func (this *TaskController) ListTasks() {
+	this.Ctx.Output.Header("Cache-Control", "no-cache, no-store, must-revalidate")
 	res := struct{ Tasks []*models.Task }{models.DefaultTaskList.All()}
 	this.Data["json"] = res
 	this.ServeJSON()
@@ -39,6 +40,7 @@ func (this *TaskController) ListTasks() {
 //   req: POST /task/ {"Title": "Buy bread"}
 //   res: 200
 func (this *TaskController) NewTask() {
+	this.Ctx.Output.Header("Cache-Control", "no-cache, no-store, must-revalidate")
 	req := struct{ Title string }{}
 	if err := json.Unmarshal(this.Ctx.Input.RequestBody, &req); err != nil {
 		this.Ctx.Output.SetStatus(400)
@@ -62,6 +64,7 @@ func (this *TaskController) NewTask() {
 //   req: GET /task/42
 //   res: 404 task not found
 func (this *TaskController) GetTask() {
+	this.Ctx.Output.Header("Cache-Control", "no-cache, no-store, must-revalidate")
 	id := this.Ctx.Input.Param(":id")
 	beego.Info("Task is ", id)
 	intid, _ := strconv.ParseInt(id, 10, 64)
@@ -84,6 +87,7 @@ func (this *TaskController) GetTask() {
 //   req: PUT /task/2 {"ID": 2, "Title": "Learn Go", "Done": true}
 //   res: 400 inconsistent task IDs
 func (this *TaskController) UpdateTask() {
+	this.Ctx.Output.Header("Cache-Control", "no-cache, no-store, must-revalidate")
 	id := this.Ctx.Input.Param(":id")
 	beego.Info("Task is ", id)
 	intid, _ := strconv.ParseInt(id, 10, 64)
