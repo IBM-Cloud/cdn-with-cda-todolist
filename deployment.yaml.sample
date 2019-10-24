@@ -1,53 +1,51 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: <app_name>-deployment 
+  name: cdn-with-cda-todolist-deployment 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: <app_name>
+      app: cdn-with-cda-todolist
   template:
     metadata:
       labels:
-        app: <app_name>
-        release: <release_name>
+        app: cdn-with-cda-todolist
     spec:
       containers:
-      - name: <app_name>
-        image: <region>.icr.io/<namespace>/<image_name>:<tag>
+      - name: cdn-with-cda-todolist
+        image: <image>:latest
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: <app_name>
-  name: <app_name>
+    app: cdn-with-cda-todolist
+  name: cdn-with-cda-todolist
 spec:
   ports:
-  - name: <app_name>
-    port: <port_number>
+  - name: cdn-with-cda-todolist
+    port: 8080
     protocol: TCP
-    targetPort: <port_number>
+    targetPort: 8080
   selector:
-    app: <app_name>
-    release: <release_name>
+    app: cdn-with-cda-todolist
   type: ClusterIP
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: <app_name>-ingress
+  name: cdn-with-cda-todolist-ingress
 spec:
   rules:
-  - host: <host>.<cluster_name>.<region>.containers.appdomain.cloud
+  - host: cdn-with-cda-todolist.<ingress-subdomain>
     http:
       paths:
       - path: /
         backend:
-          serviceName: <app_name>
-          servicePort: <port_number>
+          serviceName: cdn-with-cda-todolist
+          servicePort: 8080
  tls:
   - hosts:
-    - <host>.<cluster_name>.<region>.containers.appdomain.cloud
-    secretName: <secret_name>
+    - cdn-with-cda-todolist.<ingress-subdomain>
+    secretName: <ingress-secret>
