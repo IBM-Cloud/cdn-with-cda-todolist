@@ -45,7 +45,7 @@ spec:
         backend:
           serviceName: cdn-with-cda-todolist
           servicePort: 8080
- tls:
+  tls:
   - hosts:
     - cdn-with-cda-todolist.<ingress-subdomain>
     secretName: <ingress-secret>
