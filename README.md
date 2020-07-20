@@ -1,6 +1,6 @@
 # todo list
 
-This is a sample application for the IBM Cloud Solution Tutorial [Accelerate a dynamic website using Dynamic Content Acceleration with IBM CDN](https://cloud.ibm.com/docs/tutorials?topic=solution-tutorials-dynamic-content-cdn).
+This is a sample application for the IBM Cloud Solution Tutorial [Accelerate a dynamic website using Dynamic Content Acceleration with IBM CDN](https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-dynamic-content-cdn).
 
 
 # Build the application locally
