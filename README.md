@@ -9,23 +9,14 @@ If you have already prepared the [GO](https://golang.org/) basis and the [Beego]
 
 1. Install [GO](https://go.dev/). 
   
-2. Install the Bee tool. 
-   ```bash
-   go get github.com/beego/bee
-   ```
-  
-3. Install Beego.
-   ```
-   go get github.com/beego/beego
-   ```
-
-   ```
-   export GO111MODULE=on
-   ```   
-	
-4. Get the application code. 
+2. Get the application code. 
    ```
    git clone https://github.com/IBM-Cloud/cdn-with-cda-todolist.git
+   ```
+
+3. Run go mod tidy 
+   ```
+   go mod tidy
    ```
 
 5. From your local to-do application directory, for example, `$GOPATH/src/github.com/IBM-Cloud/cdn-with-cda-todolist`, run the application locally:
