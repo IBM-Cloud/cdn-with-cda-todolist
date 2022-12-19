@@ -16,9 +16,9 @@ If you have already prepared the [GO](https://golang.org/) basis and the [Beego]
   
 3. Install Beego.
    ```
-   go get github.com/astaxie/beego@v1.12.3
+   go get github.com/beego/beego
    ```
-   If you get an error *go: cannot use path@version syntax in GOPATH mode*, run the following command before you install Beego version 1.12.3. 
+
    ```
    export GO111MODULE=on
    ```   

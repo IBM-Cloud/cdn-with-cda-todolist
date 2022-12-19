@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"strconv"
 
-	"github.com/astaxie/beego"
+	"github.com/beego/beego"
 	"github.com/beego/samples/todo/models"
 )
 

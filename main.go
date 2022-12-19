@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/astaxie/beego"
 	"github.com/IBM-Cloud/cdn-with-cda-todolist/controllers"
+	"github.com/beego/beego"
 )
 
 func main() {
