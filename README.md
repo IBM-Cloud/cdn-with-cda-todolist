@@ -5,8 +5,6 @@ This is a sample application for the IBM Cloud Solution Tutorial [Accelerate a d
 
 # Build the application locally
 
-If you have already prepared the [GO](https://golang.org/) basis and the [Beego](https://beego.me/docs/intro/) framework for application development, you can run the application locally. Otherwise, move on to the next section [Customize the application to include a test object](#customize-test-object).
-
 1. Install [GO](https://go.dev/). 
   
 2. Get the application code. 
@@ -19,10 +17,11 @@ If you have already prepared the [GO](https://golang.org/) basis and the [Beego]
    go mod tidy
    ```
 
-5. From your local to-do application directory, for example, `$GOPATH/src/github.com/IBM-Cloud/cdn-with-cda-todolist`, run the application locally:
+4. From your local to-do application directory, for example, `$GOPATH/src/github.com/IBM-Cloud/cdn-with-cda-todolist`, run the application locally:
    ```bash 
    go build main.go
    ./main
    ```
-6. After the application starts, navigate to the URL `http://localhost:8080/` from your browser.
+
+5. After the application starts, navigate to the URL `http://localhost:8080/` from your browser.
 
